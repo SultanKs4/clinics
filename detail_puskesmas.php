@@ -114,112 +114,113 @@ session_start()
                 // $result = ListPuskesmas();
                 // $no = 1;
                 // for ($i = 0; $i < 5; $i++) {
-                    ?> 
-            <div class="row">
-                <?php
+                    ?>
+                <div class="row">
+                    <?php
                             // for ($j = 0; $j < 3; $j++) {
                             //     $row = $result->fetch_assoc();
                             //     $subTitle = $row['alamat'] . '<br>' . $row['telp'];
                                 ?>
-                <div class="col">
-                    <div class="card">
-                        <div style="text-align: center; padding: 5px;" class="card-img-top">
-                            <img width="10%" src="img/poli.png" alt="uhuy">
+                        <div class="col">
+                            <div class="card">
+                                <div style="text-align: center; padding: 5px;" class="card-img-top">
+                                    <img width="10%" src="img/poli.png" alt="uhuy">
+                                </div>
+                                <div class="card-title">
+                                    <h5>
+                                        <?php //echo $row['nama'] ?> Nama Poli
+                                    </h5>
+                                </div>
+                                <div class="card-subtitle">
+                                    <p>
+                                        <?php //echo $subTitle ?>Deskripsi Poli
+                                    </p>
+                                </div>
+                                <a href="struk.php" class="btn btn-primary">Cetak Struk</a>
+                            </div>
                         </div>
-                        <div class="card-title">
-                            <h5>
-                                <?php //echo $row['nama'] ?> Nama Poli
-                            </h5>
+                        <div class="col">
+                            <div class="card">
+                                <div style="text-align: center; padding: 5px;" class="card-img-top">
+                                    <img width="10%" src="img/poli.png" alt="uhuy">
+                                </div>
+                                <div class="card-title">
+                                    <h5>
+                                        <?php //echo $row['nama'] ?> Nama Poli
+                                    </h5>
+                                </div>
+                                <div class="card-subtitle">
+                                    <p>
+                                        <?php //echo $subTitle ?>Deskripsi Poli
+                                    </p>
+                                </div>
+                                <a href="struk.php" class="btn btn-primary">Cetak Struk</a>
+                            </div>
                         </div>
-                        <div class="card-subtitle">
-                            <p>
-                                <?php //echo $subTitle ?>Deskripsi Poli
-                            </p>
-                        </div>
-                        <a href="struk.php" class="btn btn-primary">Cetak Struk</a>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                        <div style="text-align: center; padding: 5px;" class="card-img-top">
-                            <img width="10%" src="img/poli.png" alt="uhuy">
-                        </div>
-                        <div class="card-title">
-                            <h5>
-                                <?php //echo $row['nama'] ?> Nama Poli
-                            </h5>
-                        </div>
-                        <div class="card-subtitle">
-                            <p>
-                                <?php //echo $subTitle ?>Deskripsi Poli
-                            </p>
-                        </div>
-                        <a href="struk.php" class="btn btn-primary">Cetak Struk</a>
-                    </div>
-                </div>
-                <?php
+                        <?php
                             //     $no++;
                             // }
                             ?>
-            </div>
-            <div class="row">
-                <!-- <?php
+                </div>
+                <div class="row">
+                    <!-- <?php
                             // for ($j = 0; $j < 3; $j++) {
                             //     $row = $result->fetch_assoc();
                             //     $subTitle = $row['alamat'] . '<br>' . $row['telp'];
                                 ?> -->
-                <div class="col">
-                    <div class="card">
-                        <div style="text-align: center; padding: 5px;" class="card-img-top">
-                            <img width="10%" src="img/poli.png" alt="uhuy">
+                    <div class="col">
+                        <div class="card">
+                            <div style="text-align: center; padding: 5px;" class="card-img-top">
+                                <img width="10%" src="img/poli.png" alt="uhuy">
+                            </div>
+                            <div class="card-title">
+                                <h5>
+                                    <?php //echo $row['nama'] ?> Nama Poli
+                                </h5>
+                            </div>
+                            <div class="card-subtitle">
+                                <p>
+                                    <?php //echo $subTitle ?>Deskripsi Poli
+                                </p>
+                            </div>
+                            <a href="struk.php" class="btn btn-primary">Cetak Struk</a>
                         </div>
-                        <div class="card-title">
-                            <h5>
-                                <?php //echo $row['nama'] ?> Nama Poli
-                            </h5>
-                        </div>
-                        <div class="card-subtitle">
-                            <p>
-                                <?php //echo $subTitle ?>Deskripsi Poli
-                            </p>
-                        </div>
-                        <a href="struk.php" class="btn btn-primary">Cetak Struk</a>
                     </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                        <div style="text-align: center; padding: 5px;" class="card-img-top">
-                            <img width="10%" src="img/poli.png" alt="uhuy">
+                    <div class="col">
+                        <div class="card">
+                            <div style="text-align: center; padding: 5px;" class="card-img-top">
+                                <img width="10%" src="img/poli.png" alt="uhuy">
+                            </div>
+                            <div class="card-title">
+                                <h5>
+                                    <?php //echo $row['nama'] ?> Nama Poli
+                                </h5>
+                            </div>
+                            <div class="card-subtitle">
+                                <p>
+                                    <?php //echo $subTitle ?>Deskripsi Poli
+                                </p>
+                            </div>
+                            <a href="struk.php" class="btn btn-primary">Cetak Struk</a>
                         </div>
-                        <div class="card-title">
-                            <h5>
-                                <?php //echo $row['nama'] ?> Nama Poli
-                            </h5>
-                        </div>
-                        <div class="card-subtitle">
-                            <p>
-                                <?php //echo $subTitle ?>Deskripsi Poli
-                            </p>
-                        </div>
-                        <a href="struk.php" class="btn btn-primary">Cetak Struk</a>
                     </div>
-                </div>
-                <?php
+                    <?php
                             //     $no++;
                             // }
                             ?>
-            </div>
-            <?php
+                </div>
+        </div>
+        <?php
                 //     $no++;
                 // }
                 ?>
-                <!-- Footer -->
-                <nav style="background-color: rgb(21, 211, 155); height: 40px; " class="navbar navbar-expand-lg my-auto text-center ">
-                    <div style="margin-left: auto; margin-right: auto; ">
-                        <p style="text-align: center; "><b>Copyright &copy; Tim Ambyarrr</b></p>
-                    </div>
-                </nav>
-                <!-- <script>
+            <!-- Footer -->
+            <nav style="background-color: rgb(21, 211, 155); height: 40px; " class="navbar navbar-expand-lg my-auto text-center ">
+                <div style="margin-left: auto; margin-right: auto; ">
+                    <p style="text-align: center; "><b>Copyright &copy; Tim Ambyarrr</b></p>
+                </div>
+            </nav>
+            <!-- <script>
         $(document).ready(function() {
             /* This code is executed after the DOM has been completely loaded */
 
