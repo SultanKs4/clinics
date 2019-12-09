@@ -7,7 +7,7 @@ session_start();
 <head>
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="js/bootstrap.js">
-    <script src="jquery-3.4.1.js"></script>
+    <script src="js/jquery-3.4.1.js"></script>
 
     <style rel="stylesheet" type="text/css">
     .thumbnail {

@@ -24,12 +24,12 @@ function FinalCheck($result, $username)
         if ($row['nip'] == $username) {
             $_SESSION['username'] = $row['nip'];
             $_SESSION['name'] = $row['namaAdmin'];
-            header("location:../dashboard.html");
+            header("location:../dashboard.php");
             echo 'login berhasil admin';
         } elseif ($row['nik'] == $username) {
             $_SESSION['username'] = $row['nik'];
             $_SESSION['name'] = $row['namaPasien'];
-            header("location:../index.html");
+            header("location:../index.php");
             echo 'login berhasil pasien';
         }
     }
