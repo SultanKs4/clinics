@@ -62,6 +62,11 @@
             color: rgb(21, 211, 155);
             font-family: 'Montserrat';
         }
+        
+        .row,
+        .col {
+            border: 1px solid black;
+        }
     </style>
 
 </head>
@@ -71,6 +76,7 @@
     <!-- Header -->
     <nav style="background-color: rgb(21, 211, 155);" class="navbar navbar-expand-lg">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <a href="index.php" class="btn btn-danger mr-4">Back</a>
             <a class="navbar-brand" href="#"><img src="img/logo_rs.png" width="50px"></a>
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
@@ -100,7 +106,7 @@
     </nav>
     <!-- space antara gambar dan about -->
     <nav class="container-fluid text-center" style="padding: 30px;">
-        <div class="mx-auto  ">
+        <div class="mx-auto">
             <img class="m-auto" width="150px" src="img/profpic.png" alt="">
         </div>
         <div>
@@ -109,6 +115,66 @@
         <div>
             <div>
                 <p>ADMIN<br> NIP:</p>
+            </div>
+        </div>
+        <div class="mx-auto">
+            <div>
+                <h6>Data Pasien</h6>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p><b>ID</b></p>
+                </div>
+                <div class="col">
+                    <p><b>NIK</b></p>
+                </div>
+                <div class="col">
+                    <p><b>Nama</b></p>
+                </div>
+                <div class="col">
+                    <p><b>tanggalLahir</b></p>
+                </div>
+                <div class="col">
+                    <p><b>jenisKelamin</b></p>
+                </div>
+                <div class="col">
+                    <p><b>alamat</b></p>
+                </div>
+                <div class="col">
+                    <p><b>statusPenduduk</b></p>
+                </div>
+                <div class="col">
+                    <p><b>statusPasien</b></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p>1</p>
+                </div>
+                <div class="col">
+                    <p>829038032802</p>
+                </div>
+                <div class="col">
+                    <p>Joko</p>
+                </div>
+                <div class="col">
+                    <p>2019/01/01</p>
+                </div>
+                <div class="col">
+                    <p>1</p>
+                </div>
+                <div class="col">
+                    <p>jl. jekardah</p>
+                </div>
+                <div class="col">
+                    <p>2</p>
+                </div>
+                <div class="col">
+                    <p>1</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="btn btn-success mx-auto">Validate</div>
             </div>
         </div>
     </nav>

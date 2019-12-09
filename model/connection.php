@@ -1,7 +1,7 @@
 <?php
 $host = "localhost";
-$username = "clinics"; // Sultan
-// $username = "root"; XAMPP
+// $username = "clinics"; // Sultan
+$username = "root"; //XAMPP
 $password = "";
 $database = "clinics";
 

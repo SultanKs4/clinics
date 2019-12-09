@@ -86,7 +86,7 @@ session_start()
                     <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
                 </form> -->
                 <div id="link_login" style="padding-left: 40px;font-family: 'Monteserrat';">
-                    <a class="btn btn-warning" href="login.php">Login</a> | <a class="btn btn-success" href="register.php">Register</a>
+                    <a class="btn btn-warning" href="login.php">Login</a> <a class="btn btn-success" href="register.php">Register</a>
                 </div>
             </div>
         </nav>

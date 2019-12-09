@@ -88,8 +88,18 @@ session_start()
                     <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
                 </form> -->
             <div id="link_login" style="padding-left: 40px;font-family: 'Monteserrat';">
+                <?php
+                // if () {
+                
+                ?>
                 <a class="btn btn-warning" href="login.php">Login</a> | <a class="btn btn-success"
                     href="register.php">Register</a>
+                <!-- }else{
+                <?php
+                ?>
+                <a href="dashboard.html"><img src="img/profile_picture.jpg" width="40px" alt="profile_picture"></a><br>
+                    <p id="username" style="font-size: smaller;">Username</p>
+            } -->
             </div>
         </div>
     </nav>

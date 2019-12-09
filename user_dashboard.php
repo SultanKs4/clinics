@@ -71,7 +71,8 @@
     <!-- Header -->
     <nav style="background-color: rgb(21, 211, 155);" class="navbar navbar-expand-lg">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <a class="navbar-brand" href="#"><img src="img/logo_rs.png" width="50px"></a>
+        <a href="index.php" class="btn btn-danger mr-4">Back</a>
+        <a class="navbar-brand" href="#"><img src="img/logo_rs.png" width="50px"></a>
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                     <p style="font-family: 'Blockletter'; font-size: 30px; padding-top: 13px;color: white;" class="navbar-brand ">
