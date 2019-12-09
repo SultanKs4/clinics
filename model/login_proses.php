@@ -4,9 +4,10 @@ session_start();
 function LoginCheckQuery(String $username, String $password)
 {
     include 'connection.php';
-    $query = "SELECT nik, dataPasien.nama AS namaPasien , dataPasien.password AS passwordPasien, nip, dataAdmin.nama as namaAdmin, dataAdmin.password AS passwordAdmin FROM dataPasien CROSS JOIN dataAdmin WHERE nik = '$username' AND dataPasien.password = '$password' OR nip = '$username' AND dataAdmin.password = '$password'";
+    $query = "SELECT dataPasien.id AS idPasien, nik, dataPasien.nama AS namaPasien , dataPasien.password AS passwordPasien, dataAdmin.id AS idAdmin, nip, dataAdmin.nama as namaAdmin, dataAdmin.password AS passwordAdmin FROM dataPasien CROSS JOIN dataAdmin WHERE nik = '$username' AND dataPasien.password = '$password' OR nip = '$username' AND dataAdmin.password = '$password'";
     $result = $connect->query($query);
 
+    $connect->close();
     FinalCheck($result, $username);
 }
 
@@ -24,13 +25,13 @@ function FinalCheck($result, $username)
         if ($row['nip'] == $username) {
             $_SESSION['username'] = $row['nip'];
             $_SESSION['name'] = $row['namaAdmin'];
+            $_SESSION['idLogin'] = $row['idAdmin'];
             header("location:../dashboard.php");
-            echo 'login berhasil admin';
         } elseif ($row['nik'] == $username) {
             $_SESSION['username'] = $row['nik'];
             $_SESSION['name'] = $row['namaPasien'];
+            $_SESSION['idLogin'] = $row['idPasien'];
             header("location:../index.php");
-            echo 'login berhasil pasien';
         }
     }
 }
