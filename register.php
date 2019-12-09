@@ -80,7 +80,8 @@
                 <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
             </form> -->
             <div id="link_login" style="padding-left: 40px;font-family: 'Monteserrat';">
-            <a class="btn btn-warning" href="login.php">Login</a>  <a class="btn btn-outline-danger" href="index.php">Back</a> 
+                <a class="btn btn-warning" href="login.php">Login</a> <a class="btn btn-outline-danger"
+                    href="index.php">Back</a>
             </div>
         </div>
     </nav>
@@ -90,55 +91,69 @@
             <div style=" color: white; " class=" col ">____</div>
             <div class=" col "></div>
         </div>
-        <form action="home.php" method="GET">
-        <div class="form-group">
-            <label for="exampleInputFullName1">Nama Lengkap</label>
-            <input type="text" name="nama" class="form-control" id="inputFullName1" aria-describedby="fullnameHelp"
-                placeholder="Masukkan Nama Lengkap" required>
-            <small id="fullnameHelp" class="form-text text-muted">Masukkan Nama Lengkap</small>
-        </div>
-        <div class="form-group">
-            <label for="exampleInputKTP1">NIK</label>
-            <input type="text" name="nik" class="form-control" id="inputNoKTP1" placeholder="Nomor KTP" required>
-            <small id="ktpHelp" class="form-text text-muted">Masukkan Nomor KTP</small>
-        </div>
-        <div class="form-group">
-            <label for="exampleInputTTL1">Tanggal Lahir</label>
-            <input type="date" name="tanggal" class="form-control" id="inputTTL1" placeholder="Tanggal Lahir" required>
-            <small id="ttlHelp" class="form-text text-muted">Masukkan Tanggal Lahir</small>
-        </div>
-        <div class="form-group">
-            <label for="exampleInputBPJS1">Nomor BPJS</label>
-            <input type="text" name="bpjs" class="form-control" id="inputBPJS1" placeholder="Nomor BPJS" required>
-            <small id="bpjsHelp" class="form-text text-muted">Masukkan Nomor BPJS</small>
-        </div>
-        <div class="form-group">
-            <label for="exampleInputNoHP1">Nomor HP</label>
-            <input type="text" name="noHp" class="form-control" id="inputBPJS1" placeholder="Nomor HP" required>
-            <small id="noHpHelp" class="form-text text-muted">Masukkan Nomor HP</small>
-        </div>
-        <div class="form-group">
-            <label for="exampleInputAlamat1">Alamat</label>
-            <textarea class="form-control" name="alamat" id="exampleFormControlTextarea1" rows="3"></textarea>
-            <small id="alamatHelp" class="form-text text-muted">Masukkan Alamat Rumah</small>
-        </div>
-        <!-- <div class="form-group">
+        <form action="model/register_proses.php" method="POST">
+            <div class="form-group">
+                <label for="exampleInputFullName1">Nama Lengkap</label>
+                <input type="text" name="nama" class="form-control" id="inputFullName1" aria-describedby="fullnameHelp"
+                    placeholder="Masukkan Nama Lengkap" required>
+                <small id="fullnameHelp" class="form-text text-muted">Masukkan Nama Lengkap</small>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputKTP1">NIK</label>
+                <input type="text" name="nik" class="form-control" id="inputNoKTP1" placeholder="Nomor KTP" required>
+                <small id="ktpHelp" class="form-text text-muted">Masukkan Nomor KTP</small>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputTTL1">Tanggal Lahir</label>
+                <input type="date" name="tanggal" class="form-control" id="inputTTL1" placeholder="Tanggal Lahir"
+                    required>
+                <small id="ttlHelp" class="form-text text-muted">Masukkan Tanggal Lahir</small>
+            </div>
+            <div class="form-group">
+                <label for="inputJK">Jenis Kelamin</label><br>
+                <label class="radio-inline"><input type="radio" name="jenisKelamin" value="1">Laki-Laki</label>
+                <label class="radio-inline"><input type="radio" name="jenisKelamin" value="2">Wanita</label>
+                <small id="bpjsHelp" class="form-text text-muted">Masukkan Jenis Kelamin</small>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputBPJS1">Nomor BPJS</label>
+                <input type="text" name="bpjs" class="form-control" id="inputBPJS1" placeholder="Nomor BPJS" required>
+                <small id="bpjsHelp" class="form-text text-muted">Masukkan Nomor BPJS</small>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputNoHP1">Nomor HP</label>
+                <input type="text" name="noHp" class="form-control" id="inputBPJS1" placeholder="Nomor HP" required>
+                <small id="noHpHelp" class="form-text text-muted">Masukkan Nomor HP</small>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputAlamat1">Alamat</label>
+                <textarea class="form-control" name="alamat" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <small id="alamatHelp" class="form-text text-muted">Masukkan Alamat Rumah</small>
+            </div>
+            <!-- <div class="form-group">
             <label for="exampleInputUsername1">Username Baru</label>
             <input type="text" class="form-control" id="inputUsername1" placeholder="Username" required>
         </div> -->
-        <div class="form-group">
-            <label for="exampleInputPassword1">Password Baru</label>
-            <input type="password" class="form-control" id="inputPassword1" placeholder="Password" required>
-        </div>
-        <div class="form-group">
-            <label for="exampleInputPassword2">Konfirmasi Password</label>
-            <input type="password" class="form-control" id="inputPassword2" placeholder="Konfirmasi Password" required>
-        </div>
-        <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Simpan password</label>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password Baru</label>
+                <input type="password" class="form-control" id="inputPassword1" name="password"
+                    placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;" required>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword2">Konfirmasi Password</label>
+                <input type="password" class="form-control" id="inputPassword2"
+                    placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;" required oninput="check(this)">
+                <script language='javascript' type='text/javascript'>
+                function check(input) {
+                    if (input.value != document.getElementById('inputPassword1').value) {
+                        input.setCustomValidity('Password Must be Matching.');
+                    } else {
+                        input.setCustomValidity('');
+                    }
+                }
+                </script>
+            </div>
+            <button type="submit" class="btn btn-primary" name="submit">Submit</button>
         </form>
         <div class="container-fluid row ">
             <div style="color: white; " class="col ">____</div>

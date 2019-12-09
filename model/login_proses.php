@@ -26,7 +26,7 @@ function FinalCheck($result, $username)
             $_SESSION['username'] = $row['nip'];
             $_SESSION['name'] = $row['namaAdmin'];
             $_SESSION['idLogin'] = $row['idAdmin'];
-            header("location:../dashboard.php");
+            header("location:../admin_dashboard.php");
         } elseif ($row['nik'] == $username) {
             $_SESSION['username'] = $row['nik'];
             $_SESSION['name'] = $row['namaPasien'];
