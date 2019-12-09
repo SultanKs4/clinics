@@ -25,6 +25,5 @@ if (isset($_POST['submit'])) {
     $passwordPasien = md5($_POST['password']);
     InsertPasienQuery($nik, $bpjs, $nama, $tanggal, $jenisKelamin, $noHp, $alamat, $passwordPasien);
 } else {
-    // echo '<script>window.history.back()</script>';
-    echo 'error';
+    echo '<script>window.history.back()</script>';
 }
