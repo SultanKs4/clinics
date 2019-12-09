@@ -108,8 +108,7 @@
         </div>
         <div>
             <div>
-                <p>NIK: <br> Tanggal Lahir: <br> Nomor BPJS: <br> Alamat: <br> Nomor HP: <br> Jenis Kelamin: <br> Status: <br>
-                </p>
+                <p>ADMIN<br> NIP:</p>
             </div>
         </div>
     </nav>
