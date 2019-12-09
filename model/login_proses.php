@@ -42,7 +42,5 @@ if (isset($_POST['submit'])) {
     $simpan = $_POST['remember'];
     echo $simpan;
 } else {
-    $message = "Can't direct inject script";
-    echo "<script type='text/javascript'>alert('$message');</script>";
-    header("Location : " . $_SERVER['HTTP_REFERER']);
+    echo '<script>window.history.back()</script>';
 }

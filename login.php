@@ -82,7 +82,7 @@ session_start();
                 <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
             </form> -->
             <div id="link_login" style="padding-left: 40px;font-family: 'Monteserrat';">
-                <a class="btn btn-success" href="register.php">Register</a> | <a href="index.html"
+                <a class="btn btn-success" href="register.php">Register</a> | <a href="index.php"
                     class="btn btn-outline-danger">Back</a>
             </div>
         </div>
@@ -98,7 +98,7 @@ session_start();
                 <label for="exampleInputEmail1">Username</label>
                 <input type="text" class="form-control" id="inputUsername1" name="username"
                     aria-describedby="usernameHelp" placeholder="Masukkan username" required>
-                <small id="usernameHelp" class="form-text text-muted">Masukkan username yang telah anda buat</small>
+                <small id="usernameHelp" class="form-text text-muted">Masukkan NIK anda sebagai username</small>
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Password</label>
