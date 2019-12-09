@@ -95,7 +95,7 @@ session_start();
         </div>
         <form action="model/login_proses.php" method="POST">
             <div class="form-group">
-                <label for="exampleInputEmail1">Username</label>
+                <label for="exampleInputEmail1">NIK</label>
                 <input type="text" class="form-control" id="inputUsername1" name="username"
                     aria-describedby="usernameHelp" placeholder="Masukkan username" required>
                 <small id="usernameHelp" class="form-text text-muted">Masukkan NIK anda sebagai username</small>
