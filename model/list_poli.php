@@ -6,5 +6,5 @@ function ListPoli(int $idPuskesmas)
 
     $query = "SELECT dataPus.nama, p.nama FROM dataPoli AS p JOIN detailPuskesmas AS dPus ON p.id = dPus.idPoli 
 JOIN dataPuskesmas AS dataPus ON dataPus.idPuskesmas = dPus.idPuskesmas WHERE dataPus.nama = '$idPuskesmas'";
-    return $result = $connect->query($query);
+    return $connect->query($query);
 }

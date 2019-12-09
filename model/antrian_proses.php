@@ -6,6 +6,8 @@ function CheckQueue($idPuskesmas, $idPoli, $date)
     include 'connection.php';
     $query = "SELECT antrian FROM `dataAntrian` WHERE puskesmas = '$idPuskesmas' AND poli = '$idPoli' AND tanggal = '$date' ORDER BY antrian DESC";
 
+    $result = $connect->query($query);
+
     if ($result->num_rows == 0) {
         $queue = StringQueue($idPoli);
     } else {

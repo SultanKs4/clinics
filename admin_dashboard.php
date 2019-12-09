@@ -1,3 +1,18 @@
+<?php
+session_start();
+if (isset($_SESSION["idLoginAdmin"])) {
+    include 'model/detail_admin.php';
+    $idAdmin = $_SESSION["idLoginAdmin"];
+    $data = DataAdmin($idAdmin);
+    $nip = $data['nip'];
+    $nama = $data['nama'];
+} else {
+    $message = "Harus login dulu";
+    echo "<script type='text/javascript'>alert('$message');</script>";
+    echo "<center> akan redirect dalam beberapa detik <br></center>";
+    header("refresh:1; url=login.php");
+}
+?>
 <!DOCTYPE HTML>
 <html>
 
@@ -6,67 +21,68 @@
     <link rel="stylesheet" href="js/bootstrap.js">
 
     <style rel="stylesheet" type="text/css">
-        .thumbnail {
-            position: relative;
-        }
-        /* .caption {
+    .thumbnail {
+        position: relative;
+    }
+
+    /* .caption {
             position: absolute;
             top: 45%;
             left: 0;
             width: 100%;
         } */
-        
-        .caption {
-            position: absolute;
-            margin: 0;
-            top: 50%;
-            left: 50%;
-            margin-right: -50%;
-            transform: translate(-50%, -50%);
-            font-family: 'Blockletter';
-            font-size: 50px;
-            color: aliceblue;
-            text-shadow: rgb(21, 211, 155) 3px 5px 10px;
-            outline-color: black;
-        }
-        
-        .penutup {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: black;
-            opacity: 0.4;
-        }
-        
-        #link_puskesmas ul li {
-            margin-right: auto;
-            margin-left: auto;
-            display: inline-block;
-            text-decoration: none;
-            font-family: 'Montserrat';
-        }
-        
-        #link_puskesmas ul li a {
-            display: inline-block;
-            text-align: center;
-            color: black;
-            font-family: 'Montserrat';
-        }
-        
-        #link_puskesmas ul li a:hover {
-            display: inline-block;
-            text-align: center;
-            text-decoration: none;
-            color: rgb(21, 211, 155);
-            font-family: 'Montserrat';
-        }
-        
-        .row,
-        .col {
-            border: 1px solid black;
-        }
+
+    .caption {
+        position: absolute;
+        margin: 0;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+        font-family: 'Blockletter';
+        font-size: 50px;
+        color: aliceblue;
+        text-shadow: rgb(21, 211, 155) 3px 5px 10px;
+        outline-color: black;
+    }
+
+    .penutup {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        opacity: 0.4;
+    }
+
+    #link_puskesmas ul li {
+        margin-right: auto;
+        margin-left: auto;
+        display: inline-block;
+        text-decoration: none;
+        font-family: 'Montserrat';
+    }
+
+    #link_puskesmas ul li a {
+        display: inline-block;
+        text-align: center;
+        color: black;
+        font-family: 'Montserrat';
+    }
+
+    #link_puskesmas ul li a:hover {
+        display: inline-block;
+        text-align: center;
+        text-decoration: none;
+        color: rgb(21, 211, 155);
+        font-family: 'Montserrat';
+    }
+
+    .row,
+    .col {
+        border: 1px solid black;
+    }
     </style>
 
 </head>
@@ -80,7 +96,8 @@
             <a class="navbar-brand" href="#"><img src="img/logo_rs.png" width="50px"></a>
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <p style="font-family: 'Blockletter'; font-size: 30px; padding-top: 13px;color: white;" class="navbar-brand ">
+                    <p style="font-family: 'Blockletter'; font-size: 30px; padding-top: 13px;color: white;"
+                        class="navbar-brand ">
                         <i>Malang Fast Clinic
                         </i>
                     </p>
@@ -98,7 +115,8 @@
                     </form> -->
             <div style="padding-left: 40px;padding-top: 15px;">
                 <div style="text-align: center;">
-                    <a href="dashboard.html"><img src="img/profile_picture.jpg" width="40px" alt="profile_picture"></a><br>
+                    <a href="dashboard.html"><img src="img/profile_picture.jpg" width="40px"
+                            alt="profile_picture"></a><br>
                     <p id="username" style="font-size: smaller;">Username</p>
                 </div>
             </div>
@@ -110,11 +128,11 @@
             <img class="m-auto" width="150px" src="img/profpic.png" alt="">
         </div>
         <div>
-            <h4>Nama Lengkap</h4>
+            <h4><?php echo $nama ?></h4>
         </div>
         <div>
             <div>
-                <p>ADMIN<br> NIP:</p>
+                <p>ADMIN<br> NIP: <?php echo $nip ?></p>
             </div>
         </div>
         <div class="mx-auto">
@@ -132,10 +150,16 @@
                     <p><b>Nama</b></p>
                 </div>
                 <div class="col">
+                    <p><b>BPJS</b></p>
+                </div>
+                <div class="col">
                     <p><b>tanggalLahir</b></p>
                 </div>
                 <div class="col">
                     <p><b>jenisKelamin</b></p>
+                </div>
+                <div class="col">
+                    <p><b>No HP</b></p>
                 </div>
                 <div class="col">
                     <p><b>alamat</b></p>
@@ -147,39 +171,53 @@
                     <p><b>statusPasien</b></p>
                 </div>
             </div>
+            <?php
+            $no = 1;
+            include 'model/detail_pasien.php';
+            $dataPasien = DataPasien();
+            while ($dataBarisPasien = $dataPasien->fetch_assoc()) {
+                ?>
             <div class="row">
                 <div class="col">
-                    <p>1</p>
+                    <p><?php echo $no ?></p>
                 </div>
                 <div class="col">
-                    <p>829038032802</p>
+                    <p><?php echo $dataBarisPasien['nik'] ?></p>
                 </div>
                 <div class="col">
-                    <p>Joko</p>
+                    <p><?php echo $dataBarisPasien['nama'] ?></p>
                 </div>
                 <div class="col">
-                    <p>2019/01/01</p>
+                    <p><?php echo $dataBarisPasien['bpjs'] ?></p>
                 </div>
                 <div class="col">
-                    <p>1</p>
+                    <p><?php echo $dataBarisPasien['tanggalLahir'] ?></p>
                 </div>
                 <div class="col">
-                    <p>jl. jekardah</p>
+                    <p><?php echo $dataBarisPasien['jenisKelamin'] ?></p>
                 </div>
                 <div class="col">
-                    <p>2</p>
+                    <p><?php echo $dataBarisPasien['no_hp'] ?></p>
                 </div>
                 <div class="col">
-                    <p>1</p>
+                    <p><?php echo $dataBarisPasien['alamat'] ?></p>
+                </div>
+                <div class="col">
+                    <p><?php echo $dataBarisPasien['status'] ?></p>
                 </div>
             </div>
             <div class="row">
                 <div class="btn btn-success mx-auto">Validate</div>
             </div>
+            <?php
+                $no++;
+            }
+            ?>
         </div>
     </nav>
     <!-- Footer -->
-    <nav style="background-color: rgb(21, 211, 155); height: 40px;" class="navbar navbar-expand-lg my-auto text-center fixed-bottom">
+    <nav style="background-color: rgb(21, 211, 155); height: 40px;"
+        class="navbar navbar-expand-lg my-auto text-center fixed-bottom">
         <div style="margin-left: auto; margin-right: auto;">
             <p style="text-align: center; ">Copyright &copy; Tim Ambyarrr</p>
         </div>
