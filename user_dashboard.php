@@ -12,6 +12,11 @@ if (isset($_SESSION["idLoginPasien"])) {
     $noHp = $data['no_hp'];
     $alamat = $data['alamat'];
     $status = $data['status'];
+} elseif (isset($_SESSION['idLoginAdmin'])) {
+    $message = "Anda Pasien";
+    echo "<script type='text/javascript'>alert('$message');</script>";
+    echo "<center> akan redirect dalam beberapa detik <br></center>";
+    header("refresh:1; url=user_dashboard.php");
 } else {
     $message = "Harus login dulu";
     echo "<script type='text/javascript'>alert('$message');</script>";

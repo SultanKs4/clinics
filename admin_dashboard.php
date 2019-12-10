@@ -6,6 +6,11 @@ if (isset($_SESSION["idLoginAdmin"])) {
     $data = DataAdmin($idAdmin);
     $nip = $data['nip'];
     $nama = $data['nama'];
+} elseif (isset($_SESSION["idLoginPasien"])) {
+    $message = "Anda admin";
+    echo "<script type='text/javascript'>alert('$message');</script>";
+    echo "<center> akan redirect dalam beberapa detik <br></center>";
+    header("refresh:1; url=user_dashboard.php");
 } else {
     $message = "Harus login dulu";
     echo "<script type='text/javascript'>alert('$message');</script>";

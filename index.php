@@ -90,7 +90,7 @@ session_start()
             <div id="link_login" style="padding-left: 40px;font-family: 'Monteserrat';">
                 <?php
                 // if () {
-                
+
                 ?>
                 <a class="btn btn-warning" href="login.php">Login</a> | <a class="btn btn-success"
                     href="register.php">Register</a>
@@ -185,7 +185,8 @@ session_start()
                         <div class="card-subtitle">
                             <p><?php echo $subTitle ?></p>
                         </div>
-                        <a href="detail_puskesmas.php" class="btn btn-primary">Details</a>
+                        <a href="detail_puskesmas.php?id=<?php echo $row['idPuskesmas'] ?>"
+                            class="btn btn-primary">Details</a>
                     </div>
                 </div>
                 <?php
