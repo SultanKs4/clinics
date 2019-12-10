@@ -36,7 +36,25 @@ if (isset($_SESSION["idLoginAdmin"])) {
             left: 0;
             width: 100%;
         } */
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        padding: 5px;
+        table-layout: fixed;
+    }
+    td, th {
+        border: 1px solid black;
 
+        padding: 5px;
+    }
+    th{
+        text-align: center;
+    }
+    
+    tr:nth-child(even) {
+        background-color:black;
+    }
     .caption {
         position: absolute;
         margin: 0;
@@ -144,76 +162,86 @@ if (isset($_SESSION["idLoginAdmin"])) {
             <div>
                 <h6>Data Pasien</h6>
             </div>
-            <div class="row">
-                <div class="col">
-                    <p><b>ID</b></p>
+            <div>
+            <table>
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    NIK
+                    </th>
+                <th>
+                    Nama
+                    </th>
+                <th>
+                    BPJS
+                    </th>
+                <th>
+                    Tanggal Lahir
+                    </th>
+                <th>
+                    Jenis Kelamin
+                    </th>
+                <th>
+                    No HP
+                    </th>
+                <th>
+                    Alamat
+                    </th>
+                <th>
+                    Status Pasien
+                    </th>
+                <th>
+                    Validasi
+                    </th>
+            </tr>
+            </table>
                 </div>
-                <div class="col">
-                    <p><b>NIK</b></p>
-                </div>
-                <div class="col">
-                    <p><b>Nama</b></p>
-                </div>
-                <div class="col">
-                    <p><b>BPJS</b></p>
-                </div>
-                <div class="col">
-                    <p><b>tanggalLahir</b></p>
-                </div>
-                <div class="col">
-                    <p><b>jenisKelamin</b></p>
-                </div>
-                <div class="col">
-                    <p><b>No HP</b></p>
-                </div>
-                <div class="col">
-                    <p><b>alamat</b></p>
-                </div>
-                <div class="col">
-                    <p><b>statusPenduduk</b></p>
-                </div>
-                <div class="col">
-                    <p><b>statusPasien</b></p>
-                </div>
-            </div>
             <?php
             $no = 1;
             include 'model/detail_pasien.php';
             $dataPasien = DataPasien();
             while ($dataBarisPasien = $dataPasien->fetch_assoc()) {
                 ?>
-            <div class="row">
-                <div class="col">
-                    <p><?php echo $no ?></p>
+            <div>
+            <table>
+            <tr>
+                <td>
+                    <?php echo $no ?>
+                </td>
+                <td>
+                    <?php echo $dataBarisPasien['nik'] ?>
+                    </td>
+                <td>
+                    <?php echo $dataBarisPasien['nama'] ?>
+                    </td>
+                <td>
+                    <?php echo $dataBarisPasien['bpjs'] ?>
+                    </td>
+                <td>
+                    <?php echo $dataBarisPasien['tanggalLahir'] ?>
+                    </td>
+                <td>
+                    <?php echo $dataBarisPasien['jenisKelamin'] ?>
+                    </td>
+                <td>
+                    <?php echo $dataBarisPasien['no_hp'] ?>
+                    </td>
+                <td>
+                    <?php echo $dataBarisPasien['alamat'] ?>
+                    </td>
+                <td>
+                    <?php echo $dataBarisPasien['status'] ?>
+                    </td>
+                <div>
+                <td>
+                    <div class="btn btn-success mx-auto;">Validate</div>
+                </td>
                 </div>
-                <div class="col">
-                    <p><?php echo $dataBarisPasien['nik'] ?></p>
+            </tr>
+            </table>
                 </div>
-                <div class="col">
-                    <p><?php echo $dataBarisPasien['nama'] ?></p>
-                </div>
-                <div class="col">
-                    <p><?php echo $dataBarisPasien['bpjs'] ?></p>
-                </div>
-                <div class="col">
-                    <p><?php echo $dataBarisPasien['tanggalLahir'] ?></p>
-                </div>
-                <div class="col">
-                    <p><?php echo $dataBarisPasien['jenisKelamin'] ?></p>
-                </div>
-                <div class="col">
-                    <p><?php echo $dataBarisPasien['no_hp'] ?></p>
-                </div>
-                <div class="col">
-                    <p><?php echo $dataBarisPasien['alamat'] ?></p>
-                </div>
-                <div class="col">
-                    <p><?php echo $dataBarisPasien['status'] ?></p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="btn btn-success mx-auto">Validate</div>
-            </div>
             <?php
                 $no++;
             }
