@@ -231,6 +231,9 @@ if (isset($_SESSION["idLoginAdmin"])) {
                 <th>
                     Validasi
                     </th>
+                <th>
+                    Hapus User
+                    </th>
             </tr>
             </table>
                 </div>
@@ -274,6 +277,9 @@ if (isset($_SESSION["idLoginAdmin"])) {
                 <td>
                     <div class="btn btn-success mx-auto;">Validate</div>
                 </td>
+                <td>
+                    <div class="btn btn-danger mx-auto;">Delete</div>
+                </td>
                 </div>
             </tr>
             </table>
@@ -299,7 +305,10 @@ if (isset($_SESSION["idLoginAdmin"])) {
                     Nama Puskesmas
                     </th>
                     <th>
-                    Deskripsi Puskesmas (Nomor Telepon & Alamat)
+                    Nomor Telepon
+                    </th>
+                    <th>
+                    Alamat
                     </th>
                     <th>
                     Tambah
@@ -314,42 +323,17 @@ if (isset($_SESSION["idLoginAdmin"])) {
                             </div>
                         </td>
                         <td>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="inputClinicPhone1" name="telepon_puskesmas"
+                                    aria-describedby="clinicPhoneHelp" placeholder="Nomor Telepon">
+                            </div>
+                        </td>
+                        <td>
                         <div class="form-group">
                         <textarea class="form-control" name="deskripsi_puskesmas" id="exampleFormControlTextarea1" rows="3"></textarea>
                         </td>
                         <td>
                         <button name="submit" type="submit" class="btn btn-primary">Tambah Data</button>
-                        </td>
-                    </form>
-                </tr>
-            </table>
-        </div>
-    </div>
-    <div class="container-fluid my-auto" style="padding: 90px;">
-        <!-- tabel update puskesmas -->
-        <div class="text-center m-auto">
-            <p><b>Delete User</b></p>
-        </div>
-        <div>
-            <table style="background-color: white; text-align: center;">
-                <tr>
-                    <th>
-                    Nama User (bukan username)
-                    </th>
-                    <th>
-                    Hapus
-                    </th>
-                </tr>
-                <tr class="bg-warning">
-                    <form action="#" method="POST">
-                        <td>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="inputClinicName1" name="namaPuskesmas"
-                                    aria-describedby="clinicNameHelp" placeholder="Nama Puskesmas">
-                            </div>
-                        </td>
-                        <td>
-                        <button name="submit" type="submit" class="btn btn-danger">Hapus Data</button>
                         </td>
                     </form>
                 </tr>
