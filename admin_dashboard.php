@@ -105,7 +105,10 @@ if (isset($_SESSION["idLoginAdmin"])) {
     tr.bg-warning td, tr.bg-secondary td{
         padding : 20px;
     }
-    
+    td {
+        word-break: break-all;
+    }
+
     </style>
 
 </head>
@@ -305,6 +308,9 @@ if (isset($_SESSION["idLoginAdmin"])) {
                     Nama Puskesmas
                     </th>
                     <th>
+                    Jenis Puskesmas
+                    </th>
+                    <th>
                     Nomor Telepon
                     </th>
                     <th>
@@ -321,6 +327,16 @@ if (isset($_SESSION["idLoginAdmin"])) {
                                 <input type="text" class="form-control" id="inputClinicName1" name="nama_puskesmas"
                                     aria-describedby="clinicNameHelp" placeholder="Nama Puskesmas">
                             </div>
+                        </td>
+                        <td>
+                        <div class="form-group">
+                            <select class="form-control" id="pilih_jenis_puskesmas1" name="select_puskesmas">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                            </select>
+                        </div>
                         </td>
                         <td>
                             <div class="form-group">
