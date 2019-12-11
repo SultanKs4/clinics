@@ -121,10 +121,45 @@ if (isset($_SESSION["idLoginPasien"])) {
                     </form> -->
             <div style="padding-left: 40px;padding-top: 15px;">
                 <div style="text-align: center;">
-                    <a href="dashboard.html"><img src="img/profile_picture.jpg" width="40px"
-                            alt="profile_picture"></a><br>
-                    <p id="username" style="font-size: smaller;">Username</p>
+                <?php
+                if (isset($_SESSION["idLoginPasien"]) || isset($_SESSION["idLoginAdmin"])) {
+                    $username = $_SESSION['name'];
+                ?>
+                <div class="row">
+                    <!-- kolom logout -->
+                    <div class="col">
+                    <a href="model/logout_proses.php" class="btn btn-secondary">Logout</a>
+                    </div>
+                    <!-- kolom profil -->
+                    <div class="col">
+                        <?php
+                        if (isset($_SESSION["idLoginPasien"])) {
+                            ?>
+                        <a href="user_dashboard.php"><img src="img/profile_picture.jpg" width="40px"alt="profile_picture"></a><br>
+                        <?php
+                        }else if(isset($_SESSION["idLoginAdmin"])){
+                        ?>
+                        <a href="admin_dashboard.php"><img src="img/profile_picture.jpg" width="40px"alt="profile_picture"></a><br>
+                        <?php
+                        }
+                        ?>        
+                        <p id="username" style="font-size: smaller;">
+                            <?php
+                            echo "$username";
+                            ?>
+                        </p>
+                    </div>
                 </div>
+                <?php
+                }else{
+                    
+                ?>
+            
+                    <a class="btn btn-warning" href="login.php">Login</a> | <a class="btn btn-success"
+                    href="register.php">Register</a>
+            <?php 
+            }
+            ?>
             </div>
         </div>
     </nav>

@@ -67,7 +67,8 @@ session_start();
         <!-- Header -->
         <nav style="background-color: rgb(21, 211, 155);" class="navbar navbar-expand-lg">
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <a class="navbar-brand" href="#"><img src="img/logo_rs.png" width="50px"></a>
+            <a href="index.php" class="btn btn-danger mr-4">Back</a>
+            <a class="navbar-brand" href="#"><img src="img/logo_rs.png" width="50px"></a>
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
                         <p style="font-family: 'Blockletter'; font-size: 30px; padding-top: 13px;color: white;" class="navbar-brand ">
@@ -86,9 +87,47 @@ session_start();
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
             </form> -->
-                <div id="link_login" style="padding-left: 40px;font-family: 'Monteserrat';">
-                    <a class="btn btn-success" href="register.php">Register</a> | <a href="index.php" class="btn btn-outline-danger">Back</a>
+            <div id="link_login" style="padding-left: 40px;font-family: 'Monteserrat';">
+            <?php
+                if (isset($_SESSION["idLoginPasien"]) || isset($_SESSION["idLoginAdmin"])) {
+                    $username = $_SESSION['name'];
+                ?>
+                <div class="row m-auto">
+                    <!-- kolom logout -->
+                    <div class="col">
+                    <a href="model/logout_proses.php" class="btn btn-secondary">Logout</a>
+                    </div>
+                    <!-- kolom profil -->
+                    <div class="col">
+                        <?php
+                        if (isset($_SESSION["idLoginPasien"])) {
+                            ?>
+                        <a href="user_dashboard.php"><img src="img/profile_picture.jpg" width="40px"alt="profile_picture"></a><br>
+                        <?php
+                        }else if(isset($_SESSION["idLoginAdmin"])){
+                        ?>
+                        <a href="admin_dashboard.php"><img src="img/profile_picture.jpg" width="40px"alt="profile_picture"></a><br>
+                        <?php
+                        }
+                        ?>        
+                        <p id="username" style="font-size: smaller;">
+                            <?php
+                            echo "$username";
+                            ?>
+                        </p>
+                    </div>
                 </div>
+                <?php
+                }else{
+                    
+                ?>
+            
+                    <a class="btn btn-warning" href="login.php">Login</a> | <a class="btn btn-success"
+                    href="register.php">Register</a>
+            <?php 
+            }
+            ?>
+            </div>
             </div>
         </nav>
         <!-- Tampil Struk -->

@@ -81,6 +81,7 @@ session_start();
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
             </form> -->
+            
             <div id="link_login" style="padding-left: 40px;font-family: 'Monteserrat';">
                 <a class="btn btn-success" href="register.php">Register</a> <a href="index.php"
                     class="btn btn-outline-danger">Back</a>
@@ -109,7 +110,7 @@ session_start();
                 <input type="checkbox" class="form-check-input" id="exampleCheck1" name="remember">
                 <label class="form-check-label" for="exampleCheck1">Simpan password</label>
             </div>
-            <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+            <button name="submit" type="submit" class="btn btn-primary">Submit</button>
         </form>
         <div class="container-fluid row ">
             <div style="color: white; " class="col ">____</div>
