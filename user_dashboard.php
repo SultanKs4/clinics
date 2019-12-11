@@ -13,10 +13,10 @@ if (isset($_SESSION["idLoginPasien"])) {
     $alamat = $data['alamat'];
     $status = $data['status'];
 } elseif (isset($_SESSION['idLoginAdmin'])) {
-    $message = "Anda Pasien";
+    $message = "Anda Admin";
     echo "<script type='text/javascript'>alert('$message');</script>";
     echo "<center> akan redirect dalam beberapa detik <br></center>";
-    header("refresh:1; url=user_dashboard.php");
+    header("refresh:1; url=admin_dashboard.php");
 } else {
     $message = "Harus login dulu";
     echo "<script type='text/javascript'>alert('$message');</script>";
@@ -121,47 +121,49 @@ if (isset($_SESSION["idLoginPasien"])) {
                     </form> -->
             <div style="padding-left: 40px;padding-top: 15px;">
                 <div style="text-align: center;">
-                <?php
-                if (isset($_SESSION["idLoginPasien"]) || isset($_SESSION["idLoginAdmin"])) {
-                    $username = $_SESSION['name'];
-                ?>
-                <div class="row">
-                    <!-- kolom logout -->
-                    <div class="col">
-                    <a href="model/logout_proses.php" class="btn btn-secondary">Logout</a>
-                    </div>
-                    <!-- kolom profil -->
-                    <div class="col">
-                        <?php
-                        if (isset($_SESSION["idLoginPasien"])) {
-                            ?>
-                        <a href="user_dashboard.php"><img src="img/profile_picture.jpg" width="40px"alt="profile_picture"></a><br>
-                        <?php
-                        }else if(isset($_SESSION["idLoginAdmin"])){
+                    <?php
+                    if (isset($_SESSION["idLoginPasien"]) || isset($_SESSION["idLoginAdmin"])) {
+                        $username = $_SESSION['name'];
                         ?>
-                        <a href="admin_dashboard.php"><img src="img/profile_picture.jpg" width="40px"alt="profile_picture"></a><br>
-                        <?php
-                        }
-                        ?>        
-                        <p id="username" style="font-size: smaller;">
+                    <div class="row">
+                        <!-- kolom logout -->
+                        <div class="col">
+                            <a href="model/logout_proses.php" class="btn btn-secondary">Logout</a>
+                        </div>
+                        <!-- kolom profil -->
+                        <div class="col">
                             <?php
-                            echo "$username";
-                            ?>
-                        </p>
+                                    if (isset($_SESSION["idLoginPasien"])) {
+                                        ?>
+                            <a href="user_dashboard.php"><img src="img/profile_picture.jpg" width="40px"
+                                    alt="profile_picture"></a><br>
+                            <?php
+                                    } else if (isset($_SESSION["idLoginAdmin"])) {
+                                        ?>
+                            <a href="admin_dashboard.php"><img src="img/profile_picture.jpg" width="40px"
+                                    alt="profile_picture"></a><br>
+                            <?php
+                                    }
+                                    ?>
+                            <p id="username" style="font-size: smaller;">
+                                <?php
+                                        echo "$username";
+                                        ?>
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <?php
-                }else{
-                    
-                ?>
-            
+                    <?php
+                    } else {
+
+                        ?>
+
                     <a class="btn btn-warning" href="login.php">Login</a> | <a class="btn btn-success"
-                    href="register.php">Register</a>
-            <?php 
-            }
-            ?>
+                        href="register.php">Register</a>
+                    <?php
+                    }
+                    ?>
+                </div>
             </div>
-        </div>
     </nav>
     <!-- space antara gambar dan about -->
     <nav class="container-fluid text-center" style="padding: 30px;">
