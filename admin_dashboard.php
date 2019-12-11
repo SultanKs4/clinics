@@ -52,9 +52,10 @@ if (isset($_SESSION["idLoginAdmin"])) {
         text-align: center;
     }
     
-    tr:nth-child(even) {
-        background-color:black;
-    }
+    /* tr:nth-child(even) {
+        background-color:rgb(21, 200, 100);
+        color: black;
+    } */
     .caption {
         position: absolute;
         margin: 0;
@@ -101,7 +102,9 @@ if (isset($_SESSION["idLoginAdmin"])) {
         color: rgb(21, 211, 155);
         font-family: 'Montserrat';
     }
-
+    tr.bg-warning td, tr.bg-secondary td{
+        padding : 20px;
+    }
     
     </style>
 
@@ -281,9 +284,81 @@ if (isset($_SESSION["idLoginAdmin"])) {
             ?>
         </div>
     </nav>
+    <!-- space hijau -->
+    <nav class="container-fluid" style="height: 50px;background-color: rgb(21, 211, 155);width: 100%;"></nav>
+    <!-- space hijau -->
+        <div class="container-fluid my-auto" style="padding: 90px;">
+        <!-- tabel update puskesmas -->
+        <div class="text-center m-auto">
+            <p><b>Tambah Puskesmas</b></p>
+        </div>
+        <div>
+            <table style="background-color: white; text-align: center;">
+                <tr>
+                    <th>
+                    Nama Puskesmas
+                    </th>
+                    <th>
+                    Deskripsi Puskesmas (Nomor Telepon & Alamat)
+                    </th>
+                    <th>
+                    Tambah
+                    </th>
+                </tr>
+                <tr class="bg-secondary">
+                    <form action="#" method="POST">
+                        <td>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="inputClinicName1" name="nama_puskesmas"
+                                    aria-describedby="clinicNameHelp" placeholder="Nama Puskesmas">
+                            </div>
+                        </td>
+                        <td>
+                        <div class="form-group">
+                        <textarea class="form-control" name="deskripsi_puskesmas" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </td>
+                        <td>
+                        <button name="submit" type="submit" class="btn btn-primary">Tambah Data</button>
+                        </td>
+                    </form>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="container-fluid my-auto" style="padding: 90px;">
+        <!-- tabel update puskesmas -->
+        <div class="text-center m-auto">
+            <p><b>Delete User</b></p>
+        </div>
+        <div>
+            <table style="background-color: white; text-align: center;">
+                <tr>
+                    <th>
+                    Nama User (bukan username)
+                    </th>
+                    <th>
+                    Hapus
+                    </th>
+                </tr>
+                <tr class="bg-warning">
+                    <form action="#" method="POST">
+                        <td>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="inputClinicName1" name="namaPuskesmas"
+                                    aria-describedby="clinicNameHelp" placeholder="Nama Puskesmas">
+                            </div>
+                        </td>
+                        <td>
+                        <button name="submit" type="submit" class="btn btn-danger">Hapus Data</button>
+                        </td>
+                    </form>
+                </tr>
+            </table>
+        </div>
+    </div>
     <!-- Footer -->
     <nav style="background-color: rgb(21, 211, 155); height: 40px;"
-        class="navbar navbar-expand-lg my-auto text-center fixed-bottom">
+        class="navbar navbar-expand-lg my-auto text-center">
         <div style="margin-left: auto; margin-right: auto;">
             <p style="text-align: center; ">Copyright &copy; Tim Ambyarrr</p>
         </div>
