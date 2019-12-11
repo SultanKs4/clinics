@@ -1,13 +1,20 @@
 <?php
 session_start();
 
-function CheckQueue($idPuskesmas, $idPoli, $date)
+
+function query($idPuskesmas, $idPoli, $date)
 {
     include 'connection.php';
     $query = "SELECT antrian FROM `dataAntrian` WHERE puskesmas = '$idPuskesmas' AND poli = '$idPoli' AND tanggal = '$date' ORDER BY antrian DESC";
 
     $result = $connect->query($query);
+    $connect->close();
+    return $result;
+}
 
+function CheckQueue($idPuskesmas, $idPoli, $date)
+{
+    $result = query($idPuskesmas, $idPoli, $date);
     if ($result->num_rows == 0) {
         $queue = StringQueue($idPoli);
     } else {
@@ -17,7 +24,7 @@ function CheckQueue($idPuskesmas, $idPoli, $date)
         $num = "-" + $num;
         $queue = StringQueue($idPoli, $num);
     }
-    InsertQueue($connect, $queue, $idPuskesmas, $idPoli, $date);
+    InsertQueue($queue, $idPuskesmas, $idPoli, $date);
 }
 
 function StringQueue($idPoli, $num = null)
@@ -52,8 +59,9 @@ function PoliQueueString($idPoli)
     }
 }
 
-function InsertQueue($connect, $queue, $idPuskesmas, $idPoli, $date)
+function InsertQueue($queue, $idPuskesmas, $idPoli, $date)
 {
+    include 'connection.php';
     $idNik = $_SESSION['idLogin'];
     $query = "INSERT INTO dataAntrian (`nik`, `puskesmas`, `poli`, `tanggal`, `antrian`) VALUES  ('$idNik', '$idPuskesmas', '$idPoli', '$date', '$queue')" or die("Tidak dapat input data");
 

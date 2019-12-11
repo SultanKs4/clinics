@@ -1,5 +1,16 @@
 <?php
 session_start();
+if (isset($_GET['idpu']) and isset($_GET['idpo'])) {
+    $idpu = $_GET['idpu'];
+    $idpo = $_GET['idpo'];
+    error_reporting(E_ALL);
+    ini_set('display_errors', 'on');
+} else {
+    $message = "Harus pilih puskesmas dulu";
+    echo "<script type='text/javascript'>alert('$message');</script>";
+    echo "<center> akan redirect dalam beberapa detik <br></center>";
+    header("refresh:1; url=login.php");
+}
 ?>
 <!DOCTYPE HTML>
 <html>
