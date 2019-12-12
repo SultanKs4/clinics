@@ -1,8 +1,6 @@
 <?php
 session_start();
 date_default_timezone_set('Asia/Jakarta');
-error_reporting(E_ALL);
-ini_set('display_errors', 'on');
 
 
 function query($idPuskesmas, $idPoli, $date)
@@ -98,10 +96,8 @@ if (isset($_SESSION['idLoginAdmin'])) {
     $message = "Pasien aja";
     echo "<script type='text/javascript'>alert('$message');</script>";
     echo "<center> akan redirect dalam beberapa detik <br></center>";
-    header("refresh:1; url=index.php");
-}
-
-if (isset($_GET['idpu']) || isset($_GET['idpo']) || isset($_GET['date'])) {
+    header("refresh:0.5; url=../index.php");
+} else if (isset($_GET['idpu']) || isset($_GET['idpo']) || isset($_GET['date'])) {
     $idPuskesmas = $_GET['idpu'];
     $idPoli = $_GET['idpo'];
     $date = $_GET['date'];
