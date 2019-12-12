@@ -43,15 +43,18 @@ if (isset($_SESSION["idLoginAdmin"])) {
         padding: 5px;
         table-layout: fixed;
     }
-    td, th {
+
+    td,
+    th {
         border: 1px solid black;
 
         padding: 5px;
     }
-    th{
+
+    th {
         text-align: center;
     }
-    
+
     /* tr:nth-child(even) {
         background-color:rgb(21, 200, 100);
         color: black;
@@ -102,13 +105,15 @@ if (isset($_SESSION["idLoginAdmin"])) {
         color: rgb(21, 211, 155);
         font-family: 'Montserrat';
     }
-    tr.bg-warning td, tr.bg-secondary td{
-        padding : 20px;
+
+    tr.bg-warning td,
+    tr.bg-secondary td {
+        padding: 20px;
     }
+
     td {
         word-break: break-all;
     }
-
     </style>
 
 </head>
@@ -141,45 +146,47 @@ if (isset($_SESSION["idLoginAdmin"])) {
                     </form> -->
             <div style="padding-left: 40px;padding-top: 15px;">
                 <div style="text-align: center;">
-                <?php
-                if (isset($_SESSION["idLoginPasien"]) || isset($_SESSION["idLoginAdmin"])) {
-                    $username = $_SESSION['name'];
-                ?>
-                <div class="row">
-                    <!-- kolom logout -->
-                    <div class="col">
-                    <a href="model/logout_proses.php" class="btn btn-secondary">Logout</a>
-                    </div>
-                    <!-- kolom profil -->
-                    <div class="col">
-                        <?php
-                        if (isset($_SESSION["idLoginPasien"])) {
-                            ?>
-                        <a href="user_dashboard.php"><img src="img/profile_picture.jpg" width="40px"alt="profile_picture"></a><br>
-                        <?php
-                        }else if(isset($_SESSION["idLoginAdmin"])){
+                    <?php
+                    if (isset($_SESSION["idLoginPasien"]) || isset($_SESSION["idLoginAdmin"])) {
+                        $username = $_SESSION['name'];
                         ?>
-                        <a href="admin_dashboard.php"><img src="img/profile_picture.jpg" width="40px"alt="profile_picture"></a><br>
-                        <?php
-                        }
-                        ?>        
-                        <p id="username" style="font-size: smaller;">
+                    <div class="row">
+                        <!-- kolom logout -->
+                        <div class="col">
+                            <a href="model/logout_proses.php" class="btn btn-secondary">Logout</a>
+                        </div>
+                        <!-- kolom profil -->
+                        <div class="col">
                             <?php
-                            echo "$username";
-                            ?>
-                        </p>
+                                    if (isset($_SESSION["idLoginPasien"])) {
+                                        ?>
+                            <a href="user_dashboard.php"><img src="img/profile_picture.jpg" width="40px"
+                                    alt="profile_picture"></a><br>
+                            <?php
+                                    } else if (isset($_SESSION["idLoginAdmin"])) {
+                                        ?>
+                            <a href="admin_dashboard.php"><img src="img/profile_picture.jpg" width="40px"
+                                    alt="profile_picture"></a><br>
+                            <?php
+                                    }
+                                    ?>
+                            <p id="username" style="font-size: smaller;">
+                                <?php
+                                        echo "$username";
+                                        ?>
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <?php
-                }else{
-                    
-                ?>
-            
+                    <?php
+                    } else {
+
+                        ?>
+
                     <a class="btn btn-warning" href="login.php">Login</a> | <a class="btn btn-success"
-                    href="register.php">Register</a>
-            <?php 
-            }
-            ?>
+                        href="register.php">Register</a>
+                    <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -199,47 +206,47 @@ if (isset($_SESSION["idLoginAdmin"])) {
         </div>
         <div class="mx-auto">
             <div>
-                <h6>Data Pasien</h6>
+                <p><b>Data Pasien</b></p>
             </div>
             <div>
-            <table>
-            <tr>
-                <th>
-                    ID
-                </th>
-                <th>
-                    NIK
-                    </th>
-                <th>
-                    Nama
-                    </th>
-                <th>
-                    BPJS
-                    </th>
-                <th>
-                    Tanggal Lahir
-                    </th>
-                <th>
-                    Jenis Kelamin
-                    </th>
-                <th>
-                    No HP
-                    </th>
-                <th>
-                    Alamat
-                    </th>
-                <th>
-                    Status Pasien
-                    </th>
-                <th>
-                    Validasi
-                    </th>
-                <th>
-                    Hapus User
-                    </th>
-            </tr>
-            </table>
-                </div>
+                <table>
+                    <tr>
+                        <th>
+                            ID
+                        </th>
+                        <th>
+                            NIK
+                        </th>
+                        <th>
+                            Nama
+                        </th>
+                        <th>
+                            BPJS
+                        </th>
+                        <th>
+                            Tanggal Lahir
+                        </th>
+                        <th>
+                            Jenis Kelamin
+                        </th>
+                        <th>
+                            No HP
+                        </th>
+                        <th>
+                            Alamat
+                        </th>
+                        <th>
+                            Status Pasien
+                        </th>
+                        <th>
+                            Validasi
+                        </th>
+                        <th>
+                            Hapus User
+                        </th>
+                    </tr>
+                </table>
+            </div>
             <?php
             $no = 1;
             include 'model/detail_pasien.php';
@@ -247,46 +254,54 @@ if (isset($_SESSION["idLoginAdmin"])) {
             while ($dataBarisPasien = $dataPasien->fetch_assoc()) {
                 ?>
             <div>
-            <table>
-            <tr>
-                <td>
-                    <?php echo $no ?>
-                </td>
-                <td>
-                    <?php echo $dataBarisPasien['nik'] ?>
-                    </td>
-                <td>
-                    <?php echo $dataBarisPasien['nama'] ?>
-                    </td>
-                <td>
-                    <?php echo $dataBarisPasien['bpjs'] ?>
-                    </td>
-                <td>
-                    <?php echo $dataBarisPasien['tanggalLahir'] ?>
-                    </td>
-                <td>
-                    <?php echo $dataBarisPasien['jenisKelamin'] ?>
-                    </td>
-                <td>
-                    <?php echo $dataBarisPasien['no_hp'] ?>
-                    </td>
-                <td>
-                    <?php echo $dataBarisPasien['alamat'] ?>
-                    </td>
-                <td>
-                    <?php echo $dataBarisPasien['status'] ?>
-                    </td>
-                <div>
-                <td>
-                    <div class="btn btn-success mx-auto;">Validate</div>
-                </td>
-                <td>
-                    <div class="btn btn-danger mx-auto;">Delete</div>
-                </td>
-                </div>
-            </tr>
-            </table>
-                </div>
+                <table>
+                    <tr>
+                        <td>
+                            <?php echo $no ?>
+                        </td>
+                        <td>
+                            <?php echo $dataBarisPasien['nik'] ?>
+                        </td>
+                        <td>
+                            <?php echo $dataBarisPasien['nama'] ?>
+                        </td>
+                        <td>
+                            <?php echo $dataBarisPasien['bpjs'] ?>
+                        </td>
+                        <td>
+                            <?php echo $dataBarisPasien['tanggalLahir'] ?>
+                        </td>
+                        <td>
+                            <?php echo $dataBarisPasien['jenisKelamin'] ?>
+                        </td>
+                        <td>
+                            <?php echo $dataBarisPasien['no_hp'] ?>
+                        </td>
+                        <td>
+                            <?php echo $dataBarisPasien['alamat'] ?>
+                        </td>
+                        <td>
+                            <?php echo $dataBarisPasien['status'] ?>
+                        </td>
+                        <div>
+                            <td>
+                                <?php
+                                        if ($dataBarisPasien['status'] == "Not Verified") {
+                                            ?>
+                                <a href="model/update_verified.php?idUpd=<?php echo $dataBarisPasien['id'] ?>"
+                                    class="btn btn-success mx-auto">Validate</a>
+                                <?php
+                                        } else { }
+                                        ?>
+                            </td>
+                            <td>
+                                <a href="model/detail_pasien.php?idDel=<?php echo $dataBarisPasien['id'] ?>"
+                                    class="btn btn-danger mx-auto">Delete</a>
+                            </td>
+                        </div>
+                    </tr>
+                </table>
+            </div>
             <?php
                 $no++;
             }
@@ -296,7 +311,7 @@ if (isset($_SESSION["idLoginAdmin"])) {
     <!-- space hijau -->
     <nav class="container-fluid" style="height: 50px;background-color: rgb(21, 211, 155);width: 100%;"></nav>
     <!-- space hijau -->
-        <div class="container-fluid my-auto" style="padding: 90px;">
+    <div class="container-fluid my-auto" style="padding: 90px;">
         <!-- tabel update puskesmas -->
         <div class="text-center m-auto">
             <p><b>Tambah Puskesmas</b></p>
@@ -305,38 +320,28 @@ if (isset($_SESSION["idLoginAdmin"])) {
             <table style="background-color: white; text-align: center;">
                 <tr>
                     <th>
-                    Nama Puskesmas
+                        Nama Puskesmas
                     </th>
                     <th>
-                    Jenis Puskesmas
+                        Nomor Telepon
                     </th>
                     <th>
-                    Nomor Telepon
+                        Alamat
                     </th>
                     <th>
-                    Alamat
+                        Jenis Puskesmas
                     </th>
                     <th>
-                    Tambah
+                        Tambah
                     </th>
                 </tr>
                 <tr class="bg-secondary">
-                    <form action="#" method="POST">
+                    <form action="model/list_puskesmas.php" method="POST">
                         <td>
                             <div class="form-group">
                                 <input type="text" class="form-control" id="inputClinicName1" name="nama_puskesmas"
                                     aria-describedby="clinicNameHelp" placeholder="Nama Puskesmas">
                             </div>
-                        </td>
-                        <td>
-                        <div class="form-group">
-                            <select class="form-control" id="pilih_jenis_puskesmas1" name="select_puskesmas">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                            </select>
-                        </div>
                         </td>
                         <td>
                             <div class="form-group">
@@ -345,11 +350,20 @@ if (isset($_SESSION["idLoginAdmin"])) {
                             </div>
                         </td>
                         <td>
-                        <div class="form-group">
-                        <textarea class="form-control" name="deskripsi_puskesmas" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <div class="form-group">
+                                <textarea class="form-control" name="alamat_puskesmas" id="exampleFormControlTextarea1"
+                                    rows="3"></textarea>
                         </td>
                         <td>
-                        <button name="submit" type="submit" class="btn btn-primary">Tambah Data</button>
+                            <div class="form-group">
+                                <select class="form-control" id="pilih_jenis_puskesmas1" name="select_puskesmas">
+                                    <option>Rawat Inap</option>
+                                    <option>Non Rawat Inap</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td>
+                            <button name="submitAdd" type="submit" class="btn btn-primary">Tambah Data</button>
                         </td>
                     </form>
                 </tr>
@@ -357,8 +371,7 @@ if (isset($_SESSION["idLoginAdmin"])) {
         </div>
     </div>
     <!-- Footer -->
-    <nav style="background-color: rgb(21, 211, 155); height: 40px;"
-        class="navbar navbar-expand-lg my-auto text-center">
+    <nav style="background-color: rgb(21, 211, 155); height: 40px;" class="navbar navbar-expand-lg my-auto text-center">
         <div style="margin-left: auto; margin-right: auto;">
             <p style="text-align: center; ">Copyright &copy; Tim Ambyarrr</p>
         </div>

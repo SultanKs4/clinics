@@ -123,9 +123,7 @@ session_start();
                 </div>
                 <?php
                 } else {
-
                     ?>
-
                 <a class="btn btn-warning" href="login.php">Login</a> | <a class="btn btn-success"
                     href="register.php">Register</a>
                 <?php
@@ -140,12 +138,17 @@ session_start();
         <div style="margin: 90px auto; border: 1px solid black; width: 50%;">
             <!-- judul struk -->
             <div class="text-center">
-                <p><b>Struk Antri Puskesmas</b></p>
+                <p><b>Struk Antri Puskesmas Terbaru</b></p>
             </div>
+            <?php
+            include 'model/antrian_proses.php';
+            $result = Struk();
+            $row = $result->fetch_assoc();
+            ?>
             <!-- nomor antrian -->
             <div class="mx-auto text-center">
                 <h6>Nomor Antrian</h6>
-                <h4>1</h4>
+                <h4><?php echo $row['antrian'] ?></h4>
             </div>
             <div class="table">
                 <div class="row">
@@ -153,7 +156,7 @@ session_start();
                         <p><b>Nama Puskesmas</b></p>
                     </div>
                     <div class="col">
-                        <p>Puskesmas Dinoyo</p>
+                        <p><?php echo $row['namaPus'] ?></p>
                     </div>
                 </div>
                 <div class="row">
@@ -161,7 +164,7 @@ session_start();
                         <p><b>Nama Poli</b></p>
                     </div>
                     <div class="col">
-                        <p>Polinema</p>
+                        <p><?php echo $row['namaPol'] ?></p>
                     </div>
                 </div>
                 <div class="row">
@@ -169,9 +172,10 @@ session_start();
                         <p><b>Nama Pasien</b></p>
                     </div>
                     <div class="col">
-                        <p>Joko</p>
+                        <p><?php echo $row['namaPas'] ?></p>
                     </div>
                 </div>
+                <p>Dimohon Hadir pada jam kerja di tanggal <?php echo $row['tanggal'] ?></p>
             </div>
         </div>
     </div>

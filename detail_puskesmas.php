@@ -11,6 +11,7 @@ if (isset($_GET['id'])) {
     $puskesmas = $list->fetch_assoc();
     $namaPuskesmas = $puskesmas['nama'];
     $alamatPuskesmas = $puskesmas['alamat'] . "<br>" . $puskesmas['telp'];
+    date_default_timezone_set('Asia/Jakarta');
 } else {
     $message = "Harus pilih puskesmas dulu";
     echo "<script type='text/javascript'>alert('$message');</script>";
@@ -190,8 +191,8 @@ if (isset($_GET['id'])) {
                         <?php echo $row['nama'] ?>
                     </h5>
                 </div>
-                <a href="poli_cek.php?idpu=<?php echo $id ?>&idpo=<?php echo $row['id'] ?>"
-                    class="btn btn-primary">Antrian Poli</a>
+                <a href="model/antrian_proses.php?idpu=<?php echo $id ?>&idpo=<?php echo $row['id'] ?>&date=<?php echo date("Y-m-d") ?>"
+                    class="btn btn-primary">Antri Sekarang</a>
             </div>
             <?php
                 }
